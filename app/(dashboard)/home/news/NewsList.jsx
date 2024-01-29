@@ -99,12 +99,16 @@ export default async function NewsList({ params }) {
                     <div className="ml-auto w-8 md:w-44 flex flex-col">
                         <div className="editNews">
 
-                            <Link href={`/home/news/${singleNews.id}/update`} className="flex">
-                                <button className="px-1 flex justify-center items-center bg-green-900  md:bg-green-500 text-green-100 rounded-sm pr-0 md:pr-2">
-                                    <span className="hidden md:block"> Update News </span>
-                                    <FaEdit className="ml-0 md:ml-4" />
-                                </button>
-                            </Link>
+                            {data.session.user.email === singleNews.user_email && (
+                                <Link href={`/home/news/${singleNews.id}/update`} className="flex">
+                                    <button className="px-1 flex justify-center items-center bg-green-900  md:bg-green-500 text-green-100 rounded-sm pr-0 md:pr-2">
+                                        <span className="hidden md:block"> Update News </span>
+                                        <FaEdit className="ml-0 md:ml-4" />
+                                    </button>
+                                </Link>
+
+                            )}
+
                         </div>
 
                         <div className="deleteNew mt-auto pb-1">

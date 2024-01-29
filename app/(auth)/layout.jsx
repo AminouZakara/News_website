@@ -21,6 +21,10 @@ export default async function AuthLayout({ children }) {
 
                     </Link>
 
+                    <Link href="/home/news" className="mr-auto">
+                        <h2>News</h2>
+                    </Link>
+
                     <Link href="/login"> <h2>Login</h2> </Link>
                     <Link className="mx-4" href="/signup"> <h2>Sign up</h2> </Link>
 
