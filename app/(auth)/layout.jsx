@@ -31,8 +31,17 @@ export default async function AuthLayout({ children }) {
 
                 </div>
             </nav>
+            <div className="flex items-center pt-4 flex-col">
+
+                <label className="text-base font-bold">For Checking Purpose</label> <br />
+                <label className="text-base font-bold"> Email: <span className="text-base text-green-600">moovestime@gmail.com</span>  </label>
+                <label className="text-base mr-16 font-bold"> Password: <span className="text-base text-green-600">mooves123</span>  </label>
+            </div> <br />
+
 
             {children}
+
+
         </>
     )
 }

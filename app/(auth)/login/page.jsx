@@ -30,9 +30,12 @@ export default function Login() {
         <main>
             <h2 className="text-center">Login</h2>
 
+
             <AuthForm handleSubmit={handleSubmit} />
 
             {error && <p className="error text-red-600">{error}</p>}
+
+
         </main>
     )
 }
