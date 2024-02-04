@@ -45,7 +45,6 @@ export default async function AddLStories({ params }) {
                                         alt="adds"
                                         width='90px'
                                         height='100px'
-
                                         className="rounded-lg md:w-56 "
                                     />
                                 </div>
