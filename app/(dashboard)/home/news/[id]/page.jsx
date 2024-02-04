@@ -2,8 +2,6 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
 import { cookies } from "next/headers"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import NewsList from "../NewsList"
-import DeleteNews from "./DeleteNews"
 
 export async function generateMetadata({ params }) {
     const supabase = createServerComponentClient({ cookies })
@@ -82,8 +80,6 @@ export default async function NewsDetails({ params }) {
                 {/*  ---------- Right Side News Details ----------- */}
 
                 <div className="news overflow-auto px-2 row-span-3 bg-green-300 col-span-4">
-
-
                     <div className="news-body flex flex-col">
                         <div className="news-image w-auto bg-green-600 ">
                             <img src={image_url.publicUrl}
@@ -119,7 +115,6 @@ export default async function NewsDetails({ params }) {
                             px-2 border-green-500 border-b-0 border-y-4">
                             <Link href={`/home/news/${news.id}`}>
                                 <div className="bg-green-300 flex ">
-
                                     <img src={image_url.publicUrl}
                                         alt="news"
                                         width='100px' height='auto'

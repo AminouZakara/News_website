@@ -46,7 +46,9 @@ async function getAdds() {
     if (error) {
         console.log(error)
     }
-    return data
+    if (data) {
+        return data
+    }
 }
 
 
@@ -60,37 +62,64 @@ export default async function AddsDetails({ params }) {
 
     {/*  ---------- for NewsList Fetching ----------- */ }
     const getAddsAgain = await getAdds()
-
+    const image = singleAdd.image
+    const { data: image_url } = supabase
+        .storage
+        .from('adds/public')
+        .getPublicUrl(image);
 
 
     return (
-        <div className="h-screen bg-green-300">
-            <div className="bg-green-500 h-screen
+        <div className="sm:h-screen bg-green-300">
+            <div className="bg-green-500 sm:h-screen
                flex flex-col md:grid grid-rows-3 grid-cols-6 gap-1">
-                <div className="news h-screen px-2 overflow-auto row-span-3 bg-green-300 col-span-4">
 
-                    <h2> {singleAdd.title} </h2>
-                    <p> {singleAdd.body} </p>
+                {/*  ---------- Left Side News Details ----------- */}
+                <div className="add px-2 overflow-auto row-span-3 bg-green-300 col-span-4">
+                    <div className="add-body flex flex-col">
+                        <div className="add-image w-auto bg-green-600 ">
+                            <img src={image_url.publicUrl}
+                                alt="add"
+                                width='250px' height='300px'
+                                className="w-full h-auto"
+                            />
+                        </div>
+                        <div className="pl-2 body w-full sm:2/3">
+
+                            <h1 className="text-md text-green-950"> {singleAdd.title} </h1>
+                            <p> {singleAdd.body} </p>
+                        </div>
+                    </div>
                 </div>
 
-                <div className="news h-screen bg-green-300 overflow-auto hidden md:flex flex-col row-span-3 col-span-2">
-                    <div className="sticky flex top-0 bg-green-300 p-2">
+                {/*  ---------- Right Side All News  ----------- */}
+                <div className="adds h-screen bg-green-300 overflow-auto md:flex flex-col row-span-3 col-span-2">
+                    <div className="sticky flex top-0 bg-green-300 px-2 py-3">
                         <h1 className="mr-auto text-2xl">Recent Adds</h1>
-
-                        <Link href="/home/adds/createAdd">
-                            <button className="bg-green-100 text-green-700 rounded-sm p-1">Add Add</button>
-                        </Link>
-
                     </div>
 
                     {getAddsAgain.map((adds) => {
-                        return <div key={adds.id} className="flex flex-col py-4 p-2 
+                        const imageN = adds.image
+                        const { data: image_url } = supabase
+                            .storage
+                            .from('adds/public')
+                            .getPublicUrl(imageN);
+
+                        return <div key={adds.id} className="flex flex-col py-2 
                             px-2 border-green-500 border-b-0 border-y-4">
                             <Link href={`/home/adds/${adds.id}`}>
-                                <div className="bg-green-300 ">
-                                    <h2>{adds.title}</h2>
+                                <div className="bg-green-300 flex">
+                                    <img src={image_url.publicUrl}
+                                        alt="adds"
+                                        width='100px' height='auto'
+                                        className="w-1/3 h-auto md:h-24 "
 
-                                    <p> {adds.body.slice(0, 100)} ... </p>
+                                    />
+                                    <div className="pl-2 side-news flex flex-col">
+                                        <h2>{adds.title}</h2>
+
+                                        <p> {adds.body.slice(0, 100)} ... </p>
+                                    </div>
                                 </div>
                             </Link>
 

@@ -15,7 +15,6 @@ export default function NewsForm() {
             .from("news")
             .upload("public/" + fName, file);
 
-
         if (data) {
             console.log(data);
         } else if (error) {
@@ -28,15 +27,11 @@ export default function NewsForm() {
 
 
     return (
-
-
         <div className="h-screen flex justify-center w-5/6 sm:w-3/4 rounded-md bg-green-400 ">
-
             <div className="news-form w-full flex  flex-col">
                 <div className="text-center pb-2">
                     <h2 className="text-orange-50"> News Form</h2 >
                 </div >
-
                 <div className="pl-3 sm:pl-16">
                     <div className="flex flex-col md:flex-row">
                         <div className="image pb-2 sm:pb-0 pr-4">

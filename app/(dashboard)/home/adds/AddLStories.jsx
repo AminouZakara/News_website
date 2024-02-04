@@ -2,7 +2,6 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
 import { cookies } from "next/headers"
 import Link from "next/link";
 
-
 async function getAdds() {
     const supabase = createServerComponentClient({ cookies })
     const { data, error } = await supabase
@@ -18,14 +17,13 @@ async function getAdds() {
 }
 
 
-export default async function AddsList({ params }) {
-
+export default async function AddLStories({ params }) {
     const adds = await getAdds({ params })
     const supabase = createServerComponentClient({ cookies })
     const { data } = await supabase.auth.getSession()
 
     return (
-        <div className="bg-green-200">
+        <div className="flex md:grid scroll-smooth md:grid-cols-1 gap-1 md:gap-2 overflow-auto ">
 
             {adds.map((singleAdd) => {
 
@@ -37,36 +35,35 @@ export default async function AddsList({ params }) {
 
 
                 return <div key={singleAdd.id}>
-                    <div className="add bg-green-300 flex px-2 md:pb-1 pt-1 md:px-2 border-b border-green-900">
+                    <div className="add rounded-md pl-1 flex items-center w-56 md:h-auto md:w-auto bg-yellow-100 text-green-950 ">
 
-                        <Link href={`/home/adds/${singleAdd.id}`} className="shadow-green-100">
+                        <Link href={`/home/adds/${singleAdd.id}`} className="">
                             <div style={{ display: 'flex' }}>
                                 <div>
                                     <img
                                         src={image_url.publicUrl}
                                         alt="adds"
-                                        width='250px'
-                                        height='300px'
+                                        width='90px'
+                                        height='100px'
+
+                                        className="rounded-lg md:w-56 "
                                     />
                                 </div>
 
-                                <div className="body w-full p-1">
+
+                                <div className="body w-full pl-1">
                                     <div className="flex">
-                                        <h4 className=" text-ms font-semibold md:font-bold md:text-2xl">
+                                        <h4 className="text-ms font-semibold md:font-bold  md:text-md ">
                                             {singleAdd.title}
                                         </h4>
                                     </div>
+                                    <p className="hidden md:block font-serif font-thin text-md ">
+                                        {singleAdd.body.slice(0, 30)}...
+                                    </p>
 
-                                    <p className="font-serif font-thin  md:text-lg md:hidden ">
-                                        {singleAdd.body.slice(0, 100)}...
-                                    </p>
-                                    <p className="font-serif font-thin  md:text-lg hidden md:block">
-                                        {singleAdd.body.slice(0, 250)}...
-                                    </p>
                                 </div>
 
                             </div>
-                            <span className="text-xs text-green-900"> {singleAdd.release_date} </span>
                         </Link>
                     </div>
                 </div>

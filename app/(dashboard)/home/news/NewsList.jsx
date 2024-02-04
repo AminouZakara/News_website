@@ -7,18 +7,14 @@ import { FaEdit } from "react-icons/fa";
 
 
 async function getNews() {
-
     const supabase = createServerComponentClient({ cookies })
-
     const { data, error } = await supabase
         .from('news')
         .select()
 
-
     if (error) {
         console.log("Error: ", error)
     }
-
     if (data) {
         return data
     }
@@ -31,11 +27,6 @@ export default async function NewsList({ params }) {
     const news = await getNews(params)
     const supabase = createServerComponentClient({ cookies })
     const { data } = await supabase.auth.getSession()
-
-    //may change the place
-
-
-
 
     return (
         <div className=" ">
@@ -55,16 +46,16 @@ export default async function NewsList({ params }) {
                             <div>
                                 <img src={image_url.publicUrl}
                                     alt="news"
-                                    width='250px' height='300px'
+                                    width='250px'
+                                    height='300px'
                                 />
-
                             </div>
 
                             <div className="body w-full p-2">
                                 <div className="flex">
 
                                     <div className="flex flex-col">
-                                        <h4 className=" text-lg  md:text-2xl">
+                                        <h4 className="font-semibold md:font-bold  text-lg  md:text-2xl">
                                             {singleNews.title}
 
                                         </h4>

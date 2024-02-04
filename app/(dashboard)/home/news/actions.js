@@ -26,8 +26,6 @@ export async function addNews(formData) {
             ...singleNews,
             user_email: session.user.email,
             release_date: date
-
-
         })
     if (error) throw new Error("Failed to insert news")
 

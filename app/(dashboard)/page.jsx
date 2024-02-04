@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AddLStories from "./home/adds/AddLStories";
 import AddsList from "./home/adds/AddsList";
 import MainPage from "./home/MainPage/MainPage";
 import NewsList from "./home/news/NewsList";
@@ -52,9 +53,11 @@ export default function Home() {
               row-start-1 row-span-1 col-span-5 
               md:row-span-4 md:col-span-1 ">
 
-          <AddsList />
+          <AddLStories />
 
         </div>
+
+
 
 
       </div>
