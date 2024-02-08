@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { Suspense } from "react";
+import Loading from "../../Loading";
 import AddsList from "../adds/AddsList";
 import NewsList from "./NewsList";
 
@@ -19,8 +21,9 @@ export default function news() {
                     </Link>
                 </div>
 
-
-                <NewsList />
+                <Suspense fallback={<Loading />}>
+                    <NewsList />
+                </Suspense>
 
             </div>
         </div>

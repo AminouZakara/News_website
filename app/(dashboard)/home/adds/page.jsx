@@ -2,6 +2,8 @@ import Link from 'next/link'
 import AddsList from './AddsList'
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import Loading from '../../Loading';
+import { Suspense } from 'react';
 
 
 
@@ -28,7 +30,9 @@ export default async function Adds() {
                         </Link>
                     )}
                 </div>
-                <AddsList />
+                <Suspense fallback={<Loading />}>
+                    <AddsList />
+                </Suspense>
 
             </div>
 

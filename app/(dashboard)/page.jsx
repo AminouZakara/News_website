@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import AddLStories from "./home/adds/AddLStories";
 import AddsList from "./home/adds/AddsList";
 import MainPage from "./home/MainPage/MainPage";
 import NewsList from "./home/news/NewsList";
+import Loading from "./Loading";
 
 
 export default function Home() {
@@ -37,7 +39,10 @@ export default function Home() {
 
           </div>
 
-          <NewsList />
+          <Suspense fallback={<Loading />}>
+            <NewsList />
+
+          </Suspense>
         </div>
 
         {/*---------- Adds

@@ -8,7 +8,7 @@ export default function Loading() {
 
             </div>
             <div className="">
-                <h4 className="text-lg">We are collecting the available tickets for you</h4>
+                <h4 className="text-lg">We are collecting all the available data for you</h4>
 
             </div>
         </div>

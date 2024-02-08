@@ -45,11 +45,11 @@ export default async function Navbar({ user }) {
                         <h2>News</h2>
                     </Link>
 
-                    <Link href="/" className="pl-2" >
-                        <h2>Link 2</h2>
+                    <Link href="/tickets" className="pl-2" >
+                        <h2>Voyage</h2>
                     </Link>
                     <Link href="/" className="pl-2" >
-                        <h2>Link 2</h2>
+                        <h2>Link 3</h2>
                     </Link>
                     {data.session.user.email == "aminuzak446@gmail.com" && (
                         <Link href="/home/adds" className="pl-2" >

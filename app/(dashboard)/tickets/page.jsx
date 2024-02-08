@@ -14,7 +14,7 @@ export default function Tickets() {
         <div className="min-h-fit flex   bg-green-300">
             <div className="tickets-wrapper ">
                 <nav className="ticket-nav m-5 flex justify-center items-center">
-                    <h2 className="text-green-900 text-lg"> T I C K E T S </h2>
+                    <h2 className="text-green-900 text-sm  md:text-lg "> T I C K E T S </h2>
 
                     <div className=" text-green-800 ml-auto">
                         <h2 className="text-sm">Currently Available Tickets</h2>
