@@ -23,7 +23,7 @@ export default function LogoutButton() {
         <button onClick={handleLogout} className="flex items-center">
             <span className="hidden md:block">Logout</span>
 
-            <RiLogoutCircleRLine className="ml-1" />
+            <RiLogoutCircleRLine className="pl-1" />
         </button>
     )
 }

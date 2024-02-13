@@ -27,13 +27,21 @@ export default function Login() {
 
     }
     return (
-        <main>
+        <main className="h-screen flex flex-col items-center ">
             <h2 className="text-center">Login</h2>
+            <div className="flex items-center flex-col">
 
+                <label className="text-base pt-4 font-bold">For Checking Purpose</label> <br />
+                <label className="text-base font-bold"> Email: <span className="text-base text-green-600">moovestime@gmail.com</span>  </label>
+                <label className="text-base font-bold"> Password: <span className="text-base text-green-600">mooves123</span>  </label>
+            </div> <br />
 
-            <AuthForm handleSubmit={handleSubmit} />
+            <div className="flex items-center flex-col">
+                <AuthForm handleSubmit={handleSubmit} />
 
-            {error && <p className="error text-red-600">{error}</p>}
+                {error && <p className="error text-red-600">{error}</p>}
+            </div>
+
 
 
         </main>

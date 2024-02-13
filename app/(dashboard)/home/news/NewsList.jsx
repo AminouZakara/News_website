@@ -39,11 +39,11 @@ export default async function NewsList({ params }) {
                     .from('news/public')
                     .getPublicUrl(image);
 
-                return <div key={singleNews.id} className="newsCard flex px-2 md:pb-1 pt-1 md:px-2 border-b border-green-900 ">
+                return <div key={singleNews.id} className="newsCard flex px-2 md:pb-1 md:px-2 border-b border-green-900 ">
 
                     <Link href={`/home/news/${singleNews.id}`} className="shadow-green-100 w-full">
                         <div style={{ display: 'flex' }}>
-                            <div>
+                            <div className="pt-1">
                                 <img src={image_url.publicUrl}
                                     alt="news"
                                     width='250px'
@@ -51,13 +51,11 @@ export default async function NewsList({ params }) {
                                 />
                             </div>
 
-                            <div className="body w-full p-2">
-                                <div className="flex">
-
+                            <div className="w-full px-2 ">
+                                <div className="flex ">
                                     <div className="flex flex-col">
                                         <h4 className="font-semibold md:font-bold  text-lg  md:text-2xl">
                                             {singleNews.title}
-
                                         </h4>
 
                                         <p className="font-serif font-thin  md:text-lg md:hidden ">
@@ -87,9 +85,9 @@ export default async function NewsList({ params }) {
                         </div>
                         <span className="text-xs text-green-900"> {singleNews.release_date} </span>
                     </Link>
+
                     <div className="ml-auto w-8 md:w-44 flex flex-col">
                         <div className="editNews">
-
                             {data.session.user.email === singleNews.user_email && (
                                 <Link href={`/home/news/${singleNews.id}/update`} className="flex">
                                     <button className="px-1 flex justify-center items-center bg-green-900  md:bg-green-500 text-green-100 rounded-sm pr-0 md:pr-2">
@@ -117,36 +115,6 @@ export default async function NewsList({ params }) {
 
 
             })}
-
-
-
-
-            {/* 
-
-<div className="hidden md:block">
-                    <Image
-                        src={Logo}
-                        alt="Rimbo logo"
-                        width={350}
-                        height={67}
-
-
-                    />
-                </div>
-
-
-                 <Image
-                                className=""
-                                src={Logo}
-                                alt="Rimbo logo"
-                                sizes="100vw"
-                                style={{
-                                    width: '35%',
-                                    height: '40%'
-                                }}
-                            />
-*/}
-
         </div>
     )
 }

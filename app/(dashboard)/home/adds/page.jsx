@@ -10,6 +10,7 @@ import { Suspense } from 'react';
 export default async function Adds() {
     const supabase = createServerComponentClient({ cookies })
     const { data } = await supabase.auth.getSession()
+    const my_email = 'aminuzak446@gmail.com'
 
     return (<div className='h-screen overflow-auto'>
         <div className="bg-green-300 h-screen 
@@ -21,7 +22,7 @@ export default async function Adds() {
                         <h2 className="text-green-900 font-serif text-2xl">Recent Adds</h2>
                     </Link>
 
-                    {data.session.user.email === "aminuzak446@gmail.com" && (
+                    {data.session.user.email === my_email && (
 
                         <Link href="/home/adds/createAdd" className="flex">
                             <button className="px-1 bg-green-500 text-green-100 rounded-sm pr-2">

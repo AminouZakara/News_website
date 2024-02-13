@@ -2,7 +2,7 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
 import { cookies } from "next/headers"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import DeleteButton from "./DeleteButton"
+import DeleteButton from "./DeleteTicket"
 
 export async function generateMetadata({ params }) {
     const supabase = createServerComponentClient({ cookies })
@@ -117,12 +117,7 @@ export default async function TicketDetails({ params }) {
                         </div>
 
 
-                        <div>
-                            {data.session.user.email === ticket.user_email && (
-                                <DeleteButton id={ticket.id} />
-                            )}
 
-                        </div>
                     </div>
 
                 </div>

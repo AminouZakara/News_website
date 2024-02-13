@@ -11,7 +11,7 @@ export default function AuthForm({ handleSubmit }) {
     return (
         <form onSubmit={(e) => handleSubmit(e, email, password)} className="bg-green-500">
             <label>
-                <span> Email:</span>
+                <span className="pr-9"> Email:</span>
                 <input
                     type="email"
                     onChange={(e) => setEmail(e.target.value)}
@@ -20,7 +20,7 @@ export default function AuthForm({ handleSubmit }) {
                 />
             </label>
             <label>
-                <span>Password: </span>
+                <span className="pr-1">Password: </span>
                 <input type="password"
                     onChange={(e) => setPassword(e.target.value)}
                     value={password}
@@ -28,8 +28,8 @@ export default function AuthForm({ handleSubmit }) {
 
                 />
             </label>
-            <div className="btnAuthForm flex justify-center">
-                <button className="bg-green-500  text-green-100 text-base"> Submit </button>
+            <div className="btnAuthForm flex justify-end pr-5">
+                <button className="bg-green-500 hover:text-md  text-green-50 hover:text-green-200 text-base"> Submit </button>
 
             </div>
 

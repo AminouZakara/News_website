@@ -1,6 +1,8 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
 import { cookies } from "next/headers"
 import Link from "next/link";
+import { FaEdit } from "react-icons/fa";
+import DeleteAdd from "./[id]/DeleteAdd";
 
 
 async function getAdds() {
@@ -37,9 +39,10 @@ export default async function AddsList({ params }) {
 
 
                 return <div key={singleAdd.id}>
-                    <div className="add bg-green-300 flex px-2 md:pb-1 pt-1 md:px-2 border-b border-green-900">
+                    <div className="AddCard flex px-2 md:pb-1 pt-1 md:px-2 border-b border-green-900 ">
 
-                        <Link href={`/home/adds/${singleAdd.id}`} className="shadow-green-100">
+                        <Link href={`/home/adds/${singleAdd.id}`} className="shadow-green-100 w-full">
+
                             <div style={{ display: 'flex' }}>
                                 <div>
                                     <img
@@ -68,11 +71,33 @@ export default async function AddsList({ params }) {
                             </div>
                             <span className="text-xs text-green-900"> {singleAdd.release_date} </span>
                         </Link>
+
+                        <div className="ml-auto w-12 md:w-44 flex flex-col">
+                            <div className="editAdd">
+
+                                {data.session.user.email === singleAdd.user_email && (
+                                    <Link href={`/home/adds/${singleAdd.id}/update`} className="flex">
+                                        <button className="px-1 flex justify-center items-center bg-green-900  md:bg-green-500 text-green-100 rounded-sm pr-0 md:pr-2">
+                                            <span className="hidden md:block"> Update Add </span>
+                                            <FaEdit className="ml-0 md:ml-4" />
+                                        </button>
+                                    </Link>
+
+                                )}
+
+                            </div>
+
+                            <div className="deleteNew mt-auto pb-1">
+                                {data.session.user.email === singleAdd.user_email && (
+                                    <DeleteAdd id={singleAdd.id} />
+                                )}
+                            </div>
+
+
+                        </div>
                     </div>
                 </div>
             })}
-
-
         </div>
     )
 }

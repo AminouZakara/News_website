@@ -15,14 +15,8 @@ form label {
     @apply text-gray-700 mb-1 block m-8
 }
 
-form label span {
-    @apply text-sm font-bold mb-1 mr-4
-}
 
-h1,
-h2 {
-    @apply font-bold text-xl
-}
+
 
 form .btn {
     @apply flex justify-center items-center p-4

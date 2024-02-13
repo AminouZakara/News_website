@@ -54,9 +54,9 @@ export default function Home() {
         ---------- */}
 
         {/*---------- News ---------- */}
-        <div className="news overflow-auto flex flex-col p-1 bg-green-200
+        <div className="news o flex flex-col p-1 bg-green-200
               row-start-1 row-span-1 col-span-5 
-              md:row-span-4 md:col-span-1 ">
+              md:row-span-4 md:col-span-1">
 
           <AddLStories />
 

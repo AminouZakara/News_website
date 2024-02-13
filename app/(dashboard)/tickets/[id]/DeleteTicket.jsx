@@ -4,19 +4,16 @@ import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { FaRegTrashCan } from "react-icons/fa6";
 
-
-
-
-export default function DeleteNews({ id }) {
+export default function DeleteTicket({ id }) {
     const [isLoading, setIsLoading] = useState(false)
     const router = useRouter()
 
-    const handleClick = async () => {
+    const handleDelete = async () => {
         setIsLoading(true)
 
         const supabase = createClientComponentClient()
         const { data, error } = await supabase
-            .from('news')
+            .from('tickets')
             .delete()
             .match({
                 id: id
@@ -29,31 +26,31 @@ export default function DeleteNews({ id }) {
         }
         if (!error) {
             router.refresh()
-            router.push('/home/news')
+            router.push('/tickets')
         }
     }
 
 
     return (
         <button
-            className="btnDelete  md:bg-red-400 md:rounded-md flex justify-center items-center text-green-100  md:px-2 
+            className="btnDelete  md:bg-red-400 md:rounded-md flex justify-center items-center text-green-100  px-1 
             "
-            onClick={handleClick}
+            onClick={handleDelete}
             disabled={isLoading}
         >
             {isLoading && (
                 <>
                     Deleting ...
-                    <FaRegTrashCan className="md:ml-2 " />
+                    <FaRegTrashCan className="ml-2 " />
 
                 </>
             )}
 
             {!isLoading && (
                 <>
-                    <p className="hidden md:block">Delete News</p>
+                    <p className="">Delete</p>
 
-                    <FaRegTrashCan className="md:ml-4 bg-red-600" />
+                    <FaRegTrashCan className="ml-2 bg-red-600" />
 
                 </>
             )}

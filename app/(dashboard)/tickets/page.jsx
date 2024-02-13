@@ -1,3 +1,6 @@
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers"
+
 import Link from "next/link";
 import { Suspense } from "react";
 import Loading from "../Loading";
@@ -9,7 +12,10 @@ export const metadata = {
     title: 'Zack | Tickets',
 }
 
-export default function Tickets() {
+export default async function Tickets() {
+    const supabase = createServerComponentClient({ cookies })
+    const { data } = await supabase.auth.getSession()
+
     return (
         <div className="min-h-fit flex   bg-green-300">
             <div className="tickets-wrapper ">
@@ -26,11 +32,14 @@ export default function Tickets() {
 
 
                     <div className="ml-auto">
-                        <Link href="/tickets/create">
-                            <button className="bg-green-500 text-green-100 font-bold px-2 py-1">
-                                New Ticket
-                            </button>
-                        </Link>
+                        {data.session.user.email === data.session.user.email && (
+                            <Link href="/tickets/create">
+                                <button className="bg-green-500 text-green-100 font-bold px-2 py-1">
+                                    Add New Ticket
+                                </button>
+                            </Link>
+                        )}
+
                     </div>
 
 

@@ -31,15 +31,25 @@ export default function Signup() {
 
     }
     return (
-        <main>
+        <main className="flex items-center flex-col">
             <h2 className="text-center">
                 Sign up
             </h2>
-            <AuthForm handleSubmit={handleSubmit} />
-            <div className="errormessage">
-                {error &&
-                    <p>{error}</p>}
+            <div className="flex items-center flex-col">
+
+                <label className="text-base pt-4 font-bold">For Checking Purpose</label> <br />
+                <label className="text-base font-bold"> Email: <span className="text-base text-green-600">moovestime@gmail.com</span>  </label>
+                <label className="text-base font-bold"> Password: <span className="text-base text-green-600">mooves123</span>  </label>
+            </div> <br />
+
+            <div className="flex items-center flex-col">
+                <AuthForm handleSubmit={handleSubmit} />
+                <div className="errormessage">
+                    {error &&
+                        <p>{error}</p>}
+                </div>
             </div>
+
         </main>
     )
 }

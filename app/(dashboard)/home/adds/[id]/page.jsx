@@ -70,12 +70,12 @@ export default async function AddsDetails({ params }) {
 
 
     return (
-        <div className="sm:h-screen bg-green-300">
-            <div className="bg-green-500 sm:h-screen
+        <div className="md:h-screen bg-green-300">
+            <div className="bg-green-500 md:h-screen
                flex flex-col md:grid grid-rows-3 grid-cols-6 gap-1">
 
                 {/*  ---------- Left Side News Details ----------- */}
-                <div className="add px-2 overflow-auto row-span-3 bg-green-300 col-span-4">
+                <div className="add  py-1 overflow-auto row-span-3 bg-green-300 col-span-4">
                     <div className="add-body flex flex-col">
                         <div className="add-image w-auto bg-green-600 ">
                             <img src={image_url.publicUrl}
@@ -86,14 +86,14 @@ export default async function AddsDetails({ params }) {
                         </div>
                         <div className="pl-2 body w-full sm:2/3">
 
-                            <h1 className="text-md text-green-950"> {singleAdd.title} </h1>
+                            <h1 className="text-xl font-bold text-green-950"> {singleAdd.title} </h1>
                             <p> {singleAdd.body} </p>
                         </div>
                     </div>
                 </div>
 
                 {/*  ---------- Right Side All News  ----------- */}
-                <div className="adds h-screen bg-green-300 overflow-auto md:flex flex-col row-span-3 col-span-2">
+                <div className="adds md:h-screen bg-green-300 overflow-auto md:flex flex-col row-span-3 col-span-2">
                     <div className="sticky flex top-0 bg-green-300 px-2 py-3">
                         <h1 className="mr-auto text-2xl">Recent Adds</h1>
                     </div>
@@ -105,8 +105,8 @@ export default async function AddsDetails({ params }) {
                             .from('adds/public')
                             .getPublicUrl(imageN);
 
-                        return <div key={adds.id} className="flex flex-col py-2 
-                            px-2 border-green-500 border-b-0 border-y-4">
+                        return <div key={adds.id} className="flex flex-col py-1 
+                            px-1 border-green-500 border-b-0 border-y-4">
                             <Link href={`/home/adds/${adds.id}`}>
                                 <div className="bg-green-300 flex">
                                     <img src={image_url.publicUrl}
@@ -116,7 +116,7 @@ export default async function AddsDetails({ params }) {
 
                                     />
                                     <div className="pl-2 side-news flex flex-col">
-                                        <h2>{adds.title}</h2>
+                                        <h2 className="text-green-950 text-lg font-bold ">{adds.title}</h2>
 
                                         <p> {adds.body.slice(0, 100)} ... </p>
                                     </div>

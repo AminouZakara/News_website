@@ -35,17 +35,17 @@ export default async function AddLStories({ params }) {
 
 
                 return <div key={singleAdd.id}>
-                    <div className="add rounded-md pl-1 flex items-center w-56 md:h-auto md:w-auto bg-yellow-100 text-green-950 ">
+                    <div className="add rounded-md pl-1 flex items-center w-56 md:h-auto md:w-auto bg-yellow-100 h-20 text-green-950 ">
 
                         <Link href={`/home/adds/${singleAdd.id}`} className="">
                             <div style={{ display: 'flex' }}>
-                                <div>
+                                <div className="h-20 w-32">
                                     <img
                                         src={image_url.publicUrl}
                                         alt="adds"
-                                        width='90px'
-                                        height='100px'
-                                        className="rounded-lg md:w-56 "
+                                        width='120px'
+                                        height='12px'
+                                        className=" md:w-56 h-full w-full "
                                     />
                                 </div>
 

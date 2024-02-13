@@ -77,9 +77,9 @@ export default async function NewsDetails({ params }) {
             <div className="bg-green-500 md:h-screen
                flex flex-col md:grid grid-rows-3 grid-cols-6 gap-1">
 
-                {/*  ---------- Right Side News Details ----------- */}
+                {/*  ---------- Left Side News Details ----------- */}
 
-                <div className="news overflow-auto px-2 row-span-3 bg-green-300 col-span-4">
+                <div className="news overflow-auto py-1 row-span-3 bg-green-300 col-span-4">
                     <div className="news-body flex flex-col">
                         <div className="news-image w-auto bg-green-600 ">
                             <img src={image_url.publicUrl}
@@ -90,7 +90,7 @@ export default async function NewsDetails({ params }) {
                         </div>
 
                         <div className="pl-2 body w-full sm:2/3">
-                            <h1 className="text-md text-green-950">
+                            <h1 className="text-green-950 text-lg font-bold ">
                                 {singleNews.title}
                             </h1>
                             <p> {singleNews.body} </p>
@@ -111,8 +111,8 @@ export default async function NewsDetails({ params }) {
                             .from('news/public')
                             .getPublicUrl(imageN);
 
-                        return <div key={news.id} className="flex flex-col py-2 
-                            px-2 border-green-500 border-b-0 border-y-4">
+                        return <div key={news.id} className="flex flex-col py-1 
+                            px-1 border-green-500 border-b-0 border-y-4">
                             <Link href={`/home/news/${news.id}`}>
                                 <div className="bg-green-300 flex ">
                                     <img src={image_url.publicUrl}
@@ -122,7 +122,7 @@ export default async function NewsDetails({ params }) {
 
                                     />
                                     <div className="pl-2 side-news flex flex-col">
-                                        <h2>{news.title}</h2>
+                                        <h2 className="text-green-950 text-lg font-bold ">{news.title}</h2>
 
                                         <p> {news.body.slice(0, 110)} ... </p>
 
